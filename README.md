@@ -46,8 +46,8 @@ Thanatos Sentinel is a handcrafted real-time process monitoring system for Windo
 ### Installation:
 
 ```bash
-git clone https://github.com/yourname/thanatos_sentinel
-cd thanatos_sentinel
+git clone https://github.com/yourname/thanatos_sentinal
+cd thanatos_sentinal
 pip install -r requirements.txt
 python app.py
 ```
@@ -97,14 +97,7 @@ thanatos_sentinel/
 
 ---
 
-## 🖤 Author Note
+## Author Note
+It is just a prototype still working to get it better.
 
-This project is a fusion of defense, design, and deep curiosity.
-Built with passion, patience, and purpose — Thanatos Sentinel is not just a security tool… it’s an attitude.
-
----
-
-## 📜 License
-
-MIT — but seriously, don’t fork my entire aesthetic without credit 😉
 
