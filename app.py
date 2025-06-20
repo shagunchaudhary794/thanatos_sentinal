@@ -28,7 +28,7 @@ SILENT_MODE = False
 current_threat_level = "Low"
 process_spawn_tracker = defaultdict(list)
 QUARANTINE_DIR = "quarantine"
-FERNET_KEY = b'Sismwymiy2SyhR4YnXQZY6_ThVHc8Sg37vf_qeC7UaU='
+FERNET_KEY = b'your fertnet key'
 fernet = Fernet(FERNET_KEY)
 dna_file = "threat_dna.log"
 filepath = os.path.join("threat_reports")
