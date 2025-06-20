@@ -1,0 +1,141 @@
+    
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Thanatos Sentinel</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Thanatos Sentinel</h1>
+
+        <div class="stats-grid">
+            <div class="stat-block">
+                <h3>CPU Usage</h3>
+                <div id="cpu-meter" class="meter">--%</div>
+            </div>
+
+            <div class="stat-block">
+                <h3>Memory Usage</h3>
+                <div id="mem-meter" class="meter">--%</div>
+            </div>
+
+            <div class="stat-block">
+                <h3>Network Upload</h3>
+                <div id="net-up" class="meter">-- MB</div>
+            </div>
+
+            <div class="stat-block">
+                <h3>Network Download</h3>
+                <div id="net-down" class="meter">-- MB</div>
+            </div>
+
+            <div class="stat-block">
+                <h3>Threat Level</h3>
+                <div id="threat-level" class="threat-meter">--</div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button id="silent-toggle" onclick="toggleSilent()">Silent Mode: OFF</button>
+            <button onclick="downloadReport()">Download Report</button>
+            <button onclick="archiveNow()">Archive Logs</button>
+            <button onclick="downloadReport()">🧾 Generate PDF Report</button>
+
+
+        </div>
+        <div class="log-filters">
+    <select id="threat-filter">
+        <option value="">All Threat Levels</option>
+        <option value="Low">Low</option>
+        <option value="Medium">Medium</option>
+        <option value="High">High</option>
+        <option value="Critical">Critical</option>
+    </select>
+
+    <input type="text" id="log-search" placeholder="Search by PID / Name / Path">
+
+    <button onclick="fetchLogs()">Apply Filter</button>
+</div>
+<label for="theme-select">🎨 Theme:</label>
+<select id="theme-select">
+  <option value="dark">Default Dark</option>
+  <option value="neon-blue">Neon Blue</option>
+  <option value="blood-red">Blood Red</option>
+  <option value="matrix-green">Matrix Green</option>
+  <option value="tactical">Tactical Grey</option>
+</select>
+        <div class="log-section">
+            <h3>Realtime Log</h3>
+            <div id="log-box" class="log-console"></div>
+        </div>
+        <hr>
+<h3>Live Process Dashboard</h3>
+<table id="process-table" class="process-table">
+    <thead>
+        <tr>
+            <th>PID</th>
+            <th>Name</th>
+            <th>CPU %</th>
+            <th>Memory %</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+<hr>
+<h3>🧬 Threat DNA Memory</h3>
+<table id="threat-dna-table" class="process-table">
+    <thead>
+        <tr>
+            <th>Time</th>
+            <th>Name</th>
+            <th>PID</th>
+            <th>Parent</th>
+            <th>Path</th>
+            <th>Spawn Rate</th>
+            <th>Threat</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+ 
+<hr>
+<h3>🧬 Decrypt Encrypted Log Archive</h3>
+<form id="decrypt-form">
+    <input type="file" id="enc-file" accept=".enc">
+    <input type="password" id="decrypt-key" placeholder="Enter decryption key">
+    <button type="submit">🔓 Decrypt</button>
+</form>
+
+<pre id="decrypted-output" style="margin-top:10px; padding:10px; background:#111; color:#0f0;"></pre>
+
+<hr>
+<h3>🧬 Isolated Processes (Manual Decision)</h3>
+<table id="isolation-table" class="process-table">
+    <thead>
+        <tr><th>PID</th><th>Name</th><th>Path</th><th>Actions</th></tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+
+<h3>Live System Graphs</h3>
+
+<canvas id="cpuChart" height="100"></canvas>
+<canvas id="memChart" height="100"></canvas>
+<canvas id="netChart" height="100"></canvas>
+
+    </div>
+ 
+  
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+   
+</body>
+</html>
